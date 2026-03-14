@@ -2,8 +2,8 @@ streamlit
 numpy
 pandas
 scikit-learn
-tensorflow-cpu
 matplotlib
 seaborn
 joblib
 imbalanced-learn
+tensorflow==2.12.0
