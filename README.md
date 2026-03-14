@@ -86,3 +86,17 @@ Metrics used:
 ---
 
 ## Project Structure
+
+## How to Run the Project
+
+Clone the repository
+
+git clone https://github.com/mdshahidpasha/Credict-Card-Frad-Detection
+
+Install dependencies
+
+pip install -r requirements.txt
+
+Run the Streamlit app
+
+streamlit run app.py
