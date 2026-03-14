@@ -1,6 +1,14 @@
 import streamlit as st
 import numpy as np
-import tensorflow as tf
+import os
+import subprocess
+import sys
+
+try:
+    import tensorflow as tf
+except:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "tensorflow-cpu==2.12.0"])
+    import tensorflow as tf
 import joblib
 
 # Load model and scaler
