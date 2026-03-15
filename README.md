@@ -1,13 +1,11 @@
 # 💳 Credit Card Fraud Detection using Deep Learning (ANN)
 
-![Python](https://img.shields.io/badge/Python-3.8-blue?style=flat&logo=python)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13.0-orange?style=flat&logo=tensorflow)
+![Python](https://img.shields.io/badge/Python-3.12-blue?style=flat&logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.17.0-orange?style=flat&logo=tensorflow)
 ![Streamlit](https://img.shields.io/badge/Streamlit-App-red?style=flat&logo=streamlit)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
 A deep learning project that detects fraudulent credit card transactions using an **Artificial Neural Network (ANN)**. The model is trained on a real-world dataset with SMOTE balancing and deployed as an interactive **Streamlit web application**.
-
-🔗 **Live App:** [Click here to try the app](https://credict-card-frad-detection-nauscgpmzcfv4bjlonox4h.streamlit.app)
 
 ---
 
@@ -48,7 +46,7 @@ Data Loading → EDA → Preprocessing → Feature Scaling
 4. **Handling Imbalanced Data** — SMOTE (Synthetic Minority Over-sampling Technique)
 5. **Model Building** — Artificial Neural Network with Dropout regularisation
 6. **Model Evaluation** — Accuracy, Precision, Recall, F1, ROC-AUC, Confusion Matrix
-7. **Deployment** — Streamlit app deployed on Streamlit Cloud
+7. **Deployment** — Streamlit web app running on localhost
 
 ---
 
@@ -90,12 +88,12 @@ Output Layer    →   1 neuron,  Sigmoid activation
 
 ```
 credict-card-frad-detection/
-├── app.py                          ← Streamlit web application
-├── fraud_model.keras               ← Trained ANN model
-├── scaler.pkl                      ← Fitted StandardScaler
+├── app.py                              ← Streamlit web application
+├── fraud_model.h5                      ← Trained ANN model
+├── scaler.pkl                          ← Fitted StandardScaler
 ├── Credict_Card_Fraud_Detection.ipynb  ← Full project notebook
-├── requirements.txt                ← Python dependencies
-└── README.md                       ← Project documentation
+├── requirements.txt                    ← Python dependencies
+└── README.md                           ← Project documentation
 ```
 
 ---
@@ -104,12 +102,12 @@ credict-card-frad-detection/
 
 | Category | Tools |
 |----------|-------|
-| Language | Python 3.8 |
+| Language | Python 3.12 |
 | Deep Learning | TensorFlow, Keras |
 | ML & Preprocessing | Scikit-learn, imbalanced-learn |
 | Data Analysis | Pandas, NumPy |
 | Visualisation | Matplotlib, Seaborn |
-| Deployment | Streamlit, Streamlit Cloud |
+| Deployment | Streamlit (localhost) |
 | Version Control | Git, GitHub |
 
 ---
@@ -144,7 +142,7 @@ http://localhost:8501
 - Handling severely imbalanced datasets using SMOTE
 - Building and tuning an ANN with Dropout regularisation
 - Importance of Recall and F1 over Accuracy for fraud detection
-- End-to-end ML project deployment using Streamlit
+- End-to-end ML project development and local deployment using Streamlit
 
 ---
 
