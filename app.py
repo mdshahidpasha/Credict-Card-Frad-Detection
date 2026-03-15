@@ -4,7 +4,8 @@ import tensorflow as tf
 import joblib
 
 # Load model and scaler
-model = tf.keras.models.load_model("fraud_model.keras", compile=False)
+# NEW - replace with this
+model = tf.keras.models.load_model("fraud_model.h5", compile=False)
 scaler = joblib.load("scaler.pkl")
 
 # Page config
