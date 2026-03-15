@@ -1,102 +1,161 @@
-# Credit Card Fraud Detection using Deep Learning
+# 💳 Credit Card Fraud Detection using Deep Learning (ANN)
 
-## Project Overview
+![Python](https://img.shields.io/badge/Python-3.8-blue?style=flat&logo=python)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-2.13.0-orange?style=flat&logo=tensorflow)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?style=flat&logo=streamlit)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
 
-This project builds a **Credit Card Fraud Detection system** using **Artificial Neural Networks (ANN)**.
+A deep learning project that detects fraudulent credit card transactions using an **Artificial Neural Network (ANN)**. The model is trained on a real-world dataset with SMOTE balancing and deployed as an interactive **Streamlit web application**.
 
-The model analyzes transaction features and predicts whether the transaction is **Fraudulent or Legitimate**.
-
-The project also includes a **Streamlit web application** for real-time fraud prediction.
-
----
-
-## Dataset
-
-Dataset used: **Credit Card Fraud Detection Dataset**
-
-The dataset contains anonymized transaction features:
-
-- V1 to V28 (PCA transformed features)
-- Time
-- Amount
-- Class (Target)
-
-Target variable:
-- 0 → Normal Transaction
-- 1 → Fraud Transaction
+🔗 **Live App:** [Click here to try the app](https://credict-card-frad-detection-nauscgpmzcfv4bjlonox4h.streamlit.app)
 
 ---
 
-## Project Workflow
+## 📌 Project Overview
 
-1. Exploratory Data Analysis (EDA)
-2. Data Preprocessing
-3. Feature Scaling
-4. Handling Imbalanced Data using SMOTE
-5. Model Building using Artificial Neural Network
-6. Model Evaluation
-7. Deployment using Streamlit
+Credit card fraud is a major financial threat. This project builds a binary classification model that predicts whether a given transaction is **Fraudulent (1)** or **Legitimate (0)** based on anonymised transaction features.
 
 ---
 
-## Model Architecture
+## 📂 Dataset
 
-Artificial Neural Network
+**Source:** [Kaggle — Credit Card Fraud Detection](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
 
-Input Layer → 29 features
+| Feature | Description |
+|---------|-------------|
+| V1 – V28 | PCA-transformed anonymised features |
+| Amount | Transaction amount |
+| Class | Target variable (0 = Legitimate, 1 = Fraud) |
 
-Hidden Layer 1 → 16 neurons (ReLU)
+> **Note:** The `Time` column was dropped during preprocessing as it does not contribute to fraud prediction.
 
-Hidden Layer 2 → 8 neurons (ReLU)
-
-Output Layer → 1 neuron (Sigmoid)
-
-Loss Function:
-Binary Crossentropy
-
-Optimizer:
-Adam
+**Class Distribution:**
+- Legitimate transactions: 284,315 (99.83%)
+- Fraudulent transactions: 492 (0.17%) — highly imbalanced
 
 ---
 
-## Model Evaluation
+## 🔁 Project Workflow
 
-Metrics used:
+```
+Data Loading → EDA → Preprocessing → Feature Scaling
+→ SMOTE Balancing → ANN Model → Evaluation → Deployment
+```
 
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- ROC-AUC Score
-- Confusion Matrix
-
----
-
-## Tech Stack
-
-- Python
-- TensorFlow / Keras
-- Scikit-learn
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Streamlit
+1. **Exploratory Data Analysis (EDA)** — distribution plots, correlation heatmap, class imbalance analysis
+2. **Data Preprocessing** — dropped `Time` column, handled missing values
+3. **Feature Scaling** — `StandardScaler` applied on `Amount`
+4. **Handling Imbalanced Data** — SMOTE (Synthetic Minority Over-sampling Technique)
+5. **Model Building** — Artificial Neural Network with Dropout regularisation
+6. **Model Evaluation** — Accuracy, Precision, Recall, F1, ROC-AUC, Confusion Matrix
+7. **Deployment** — Streamlit app deployed on Streamlit Cloud
 
 ---
 
-## Project Structure
+## 🧠 Model Architecture
 
-## How to Run the Project
+```
+Input Layer     →  29 features (V1–V28 + Amount)
+Hidden Layer 1  →  16 neurons, ReLU activation, Dropout (0.3)
+Hidden Layer 2  →   8 neurons, ReLU activation, Dropout (0.3)
+Output Layer    →   1 neuron,  Sigmoid activation
+```
 
-Clone the repository
+| Parameter | Value |
+|-----------|-------|
+| Loss Function | Binary Crossentropy |
+| Optimizer | Adam |
+| Epochs | 20 |
+| Batch Size | 64 |
+| Validation Split | 20% |
+| Fraud Threshold | 0.3 |
 
+---
+
+## 📊 Model Evaluation
+
+| Metric | Value |
+|--------|-------|
+| Accuracy | ✅ High |
+| Precision | ✅ High |
+| Recall | ✅ High |
+| F1 Score | ✅ High |
+| ROC-AUC Score | ✅ High |
+
+> Confusion matrix and full classification report available in the notebook.
+
+---
+
+## 🗂️ Project Structure
+
+```
+credict-card-frad-detection/
+├── app.py                          ← Streamlit web application
+├── fraud_model.keras               ← Trained ANN model
+├── scaler.pkl                      ← Fitted StandardScaler
+├── Credict_Card_Fraud_Detection.ipynb  ← Full project notebook
+├── requirements.txt                ← Python dependencies
+└── README.md                       ← Project documentation
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Tools |
+|----------|-------|
+| Language | Python 3.8 |
+| Deep Learning | TensorFlow, Keras |
+| ML & Preprocessing | Scikit-learn, imbalanced-learn |
+| Data Analysis | Pandas, NumPy |
+| Visualisation | Matplotlib, Seaborn |
+| Deployment | Streamlit, Streamlit Cloud |
+| Version Control | Git, GitHub |
+
+---
+
+## 🚀 How to Run Locally
+
+**1. Clone the repository**
+```bash
 git clone https://github.com/mdshahidpasha/Credict-Card-Frad-Detection
+cd Credict-Card-Frad-Detection
+```
 
-Install dependencies
-
+**2. Install dependencies**
+```bash
 pip install -r requirements.txt
+```
 
-Run the Streamlit app
-
+**3. Run the Streamlit app**
+```bash
 streamlit run app.py
+```
+
+**4. Open in browser**
+```
+http://localhost:8501
+```
+
+---
+
+## 💡 Key Learnings
+
+- Handling severely imbalanced datasets using SMOTE
+- Building and tuning an ANN with Dropout regularisation
+- Importance of Recall and F1 over Accuracy for fraud detection
+- End-to-end ML project deployment using Streamlit
+
+---
+
+## 👨‍💻 Developer
+
+**Md Shahid Pasha**
+
+[![GitHub](https://img.shields.io/badge/GitHub-mdshahidpasha-black?style=flat&logo=github)](https://github.com/mdshahidpasha)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
